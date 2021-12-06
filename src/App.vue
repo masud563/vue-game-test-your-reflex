@@ -2,7 +2,7 @@
 <h1>Test Your Reflex</h1>
 <button @click="start" :disabled="isPlaying">Play</button> <br>
 <Block v-if="isPlaying" :delay="delay" @end="endGame" />
-<p v-if="showResult">Reactiontime : {{ reactionTime }} ms</p>
+<Result :score="reactionTime" v-if="showResult" />
 </template>
 
 <script>
@@ -14,6 +14,7 @@ export default {
   name: 'App',
   components: {
     Block,
+    Result,
   },
   data() {
     return{
